@@ -11,19 +11,19 @@ const lcdNumbers = {
     '9': [' _ ', '|_|', ' _|']
 };
 
-function printLCD(number) {
+function generateLCDOutput(number) {
     const numStr = number.toString();
     const lcd = ['', '', ''];
 
     for (let digit of numStr) {
         for (let i = 0; i < 3; i++) {
-            lcd[i] += lcdNumbers[digit][i] + ' ';
+            lcd[i] += lcdNumbers[digit][i];
         }
     }
 
-    // Join and print the lines
-    console.log(lcd.join('\n'));
+    // Join and return the lines without trailing spaces
+    return lcd.join('\n');
 }
 
-// Example usage
-printLCD(1234567890);
+// Export the function for use in test cases
+module.exports = { generateLCDOutput };
